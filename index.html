@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Mohammed Kaleem Uddin — Data, Design, Marketing & Development Portfolio" />
+<title>Mohammed Kaleem Uddin — I Build Digital</title>
+
+<style>
+:root {
+  --bg: #eeece7;
+  --surface: rgba(255,255,255,.42);
+  --ink: #20201e;
+  --muted: #77746e;
+  --line: rgba(32,32,30,.12);
+  --lavender: #b7b5e8;
+  --sage: #b8c8ae;
+  --peach: #e5bca5;
+  --blue: #93b6c9;
+  --radius: 28px;
+  --max: 1280px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .045;
+  z-index: 100;
+  background-image:
+    radial-gradient(circle at 20% 20%, #000 0 1px, transparent 1px),
+    radial-gradient(circle at 70% 60%, #000 0 1px, transparent 1px);
+  background-size: 5px 5px, 7px 7px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(calc(100% - 48px), var(--max));
+  margin: auto;
+}
+
+/* NAV */
+
+nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  width: min(calc(100% - 40px), 1080px);
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px 12px 20px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(238,236,231,.72);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  letter-spacing: -.04em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: .78rem;
+}
+
+.nav-links a {
+  color: var(--muted);
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--ink);
+}
+
+.availability {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(184,200,174,.55);
+  font-size: .72rem;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  position: relative;
+  padding: 140px 0 80px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.eyebrow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--muted);
+  font-size: .75rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sage);
+}
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(4.5rem, 10vw, 10rem);
+  line-height: .82;
+  letter-spacing: -.085em;
+  margin: 26px 0 30px;
+}
+
+h1 span {
+  display: block;
+  padding-left: .12em;
+  font-style: italic;
+}
+
+.hero-copy {
+  max-width: 500px;
+  font-size: clamp(1rem, 1.5vw, 1.22rem);
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 34px;
+  align-items: center;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: .82rem;
+  transition: transform .3s ease, background .3s ease;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.button-primary {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.button-secondary {
+  border: 1px solid var(--line);
+}
+
+/* 3D SCENE */
+
+.scene-wrap {
+  min-height: 620px;
+  display: grid;
+  place-items: center;
+  perspective: 1400px;
+  position: relative;
+}
+
+.scene {
+  position: relative;
+  width: min(82vw, 500px);
+  aspect-ratio: 1;
+  transform-style: preserve-3d;
+  animation: float 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+.orbit {
+  position: absolute;
+  inset: 5%;
+  border: 1px solid rgba(32,32,30,.1);
+  border-radius: 50%;
+  transform: rotateX(68deg) rotateZ(18deg);
+}
+
+.orbit.two {
+  inset: 15%;
+  transform: rotateX(68deg) rotateZ(-40deg);
+}
+
+.monolith {
+  position: absolute;
+  width: 250px;
+  height: 330px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotateY(-24deg) rotateX(9deg);
+  transform-style: preserve-3d;
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  border-radius: 34px;
+  background:
+    linear-gradient(145deg,
+      rgba(255,255,255,.78),
+      rgba(183,181,232,.22));
+  border: 1px solid rgba(255,255,255,.8);
+  box-shadow: 0 30px 80px rgba(30,30,30,.12);
+  backdrop-filter: blur(20px);
+}
+
+.face::before {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  border-radius: 22px;
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(32,32,30,.07) 50%) 0 0/33% 100%,
+    linear-gradient(0deg, transparent 49%, rgba(32,32,30,.07) 50%) 0 0/100% 20%;
+  opacity: .8;
+}
+
+.face::after {
+  content: "01 / DATA";
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  font-size: .65rem;
+  letter-spacing: .15em;
+  color: var(--muted);
+}
+
+.bars {
+  position: absolute;
+  inset: 85px 38px;
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  z-index: 2;
+}
+
+.bar {
+  flex: 1;
+  border-radius: 99px;
+  background: linear-gradient(var(--blue), var(--lavender));
+  animation: bars 3s ease-in-out infinite alternate;
+}
+
+.bar:nth-child(1){height:34%}
+.bar:nth-child(2){height:67%}
+.bar:nth-child(3){height:48%}
+.bar:nth-child(4){height:88%}
+.bar:nth-child(5){height:72%}
+
+.node {
+  position: absolute;
+  width: 18px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--peach);
+  box-shadow: 0 0 30px rgba(229,188,165,.8);
+  animation: drift 5s ease-in-out infinite;
+}
+
+.node:nth-of-type(1){top:12%;left:9%}
+.node:nth-of-type(2){top:72%;right:5%;animation-delay:-2s}
+.node:nth-of-type(3){top:26%;right:4%;animation-delay:-4s}
+
+.chapter {
+  position: absolute;
+  bottom: 8%;
+  right: 4%;
+  text-align: right;
+}
+
+.chapter strong {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.chapter span {
+  font-size: .7rem;
+  color: var(--muted);
+  letter-spacing: .14em;
+}
+
+/* SECTIONS */
+
+section {
+  padding: 140px 0;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.kicker {
+  color: var(--muted);
+  font-size: .7rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 12px 0 0;
+  font-family: Georgia, serif;
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -.06em;
+  line-height: .9;
+}
+
+.section-note {
+  max-width: 320px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* EXPERIENCE */
+
+.timeline {
+  border-top: 1px solid var(--line);
+}
+
+.job {
+  display: grid;
+  grid-template-columns: 150px 1fr 1fr;
+  gap: 30px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.job-year { color: var(--muted); font-size: .8rem; }
+.job h3 { margin: 0; font-size: 1.1rem; font-weight: 500; }
+.job p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+/* PROJECTS */
+
+.projects {
+  display: grid;
+  gap: 24px;
+}
+
+.project {
+  min-height: 480px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transition: transform .45s ease;
+}
+
+.project:hover {
+  transform: translateY(-8px);
+}
+
+.project-visual {
+  min-height: 400px;
+  position: relative;
+  background: linear-gradient(135deg, var(--lavender), #d7d4f1 50%, var(--blue));
+  overflow: hidden;
+}
+
+.project:nth-child(2) .project-visual {
+  background: linear-gradient(135deg, var(--sage), #d9e2d4, var(--peach));
+}
+
+.project:nth-child(3) .project-visual {
+  background: linear-gradient(135deg, var(--peach), #f0d9ca, var(--lavender));
+}
+
+.abstract-chart {
+  position: absolute;
+  inset: 14%;
+  border-radius: 30px;
+  background: rgba(255,255,255,.42);
+  border: 1px solid rgba(255,255,255,.7);
+  backdrop-filter: blur(14px);
+}
+
+.chart-line {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 48%;
+  height: 2px;
+  background: var(--ink);
+  transform: rotate(-9deg);
+}
+
+.chart-dot {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.chart-dot:nth-child(2){top:32%;left:20%}
+.chart-dot:nth-child(3){top:58%;left:44%}
+.chart-dot:nth-child(4){top:22%;left:68%}
+.chart-dot:nth-child(5){top:45%;right:12%}
+
+.project-content {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-meta {
+  color: var(--muted);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.project h3 {
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -.05em;
+  margin: 14px 0;
+}
+
+.project p {
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 400px;
+}
+
+/* EXPERIMENTS */
+
+.experiment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.experiment {
+  min-height: 330px;
+  padding: 28px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: .4s;
+}
+
+.experiment:hover {
+  transform: rotate(-1deg) translateY(-5px);
+  background: rgba(255,255,255,.3);
+}
+
+.experiment-number {
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(32,32,30,.12);
+}
+
+/* FAQ */
+
+.faq {
+  border-top: 1px solid var(--line);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq button {
+  width: 100%;
+  padding: 28px 0;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  font: inherit;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: .4s ease;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding-bottom: 28px;
+}
+
+/* CONTACT */
+
+.contact {
+  text-align: center;
+  padding-bottom: 80px;
+}
+
+.contact h2 {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.contact .actions {
+  justify-content: center;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0 40px;
+  font-size: .78rem;
+  color: var(--muted);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ANIMATIONS */
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotateZ(0); }
+  50% { transform: translateY(-18px) rotateZ(1deg); }
+}
+
+@keyframes drift {
+  50% { transform: translate(12px,-18px); }
+}
+
+@keyframes bars {
+  to { transform: scaleY(.82); transform-origin: bottom; }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  nav { width: calc(100% - 24px); }
+  .nav-links { display: none; }
+
+  .container { width: min(calc(100% - 32px), var(--max)); }
+
+  .hero {
+    padding-top: 120px;
+  }
+
+  .hero-grid,
+  .project {
+    grid-template-columns: 1fr;
+  }
+
+  .scene-wrap {
+    min-height: 500px;
+    order: -1;
+  }
+
+  h1 {
+    font-size: clamp(4rem, 19vw, 7rem);
+  }
+
+  .section-head,
+  .job {
+    display: block;
+  }
+
+  .section-note {
+    margin-top: 22px;
+  }
+
+  .job > * {
+    margin-bottom: 12px;
+  }
+
+  .project-content {
+    padding: 32px;
+    min-height: 350px;
+  }
+
+  .experiment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 90px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#top" class="brand">MKU®</a>
+
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#experiments">Experiments</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <span class="availability">Available for opportunities</span>
+</nav>
+
+<main id="top">
+
+<section class="hero container">
+  <div class="hero-grid">
+
+    <div>
+      <div class="eyebrow">
+        <span class="dot"></span>
+        Mohammed Kaleem Uddin / Digital Portfolio
+      </div>
+
+      <h1>I BUILD <span>DIGITAL.</span></h1>
+
+      <p class="hero-copy">
+        I combine data analytics, marketing insight, design thinking and
+        development to transform complex information into clear, useful and
+        memorable digital experiences.
+      </p>
+
+      <div class="actions">
+        <a class="button button-primary" href="resume.pdf" download>
+          Download Resume ↓
+        </a>
+        <a class="button button-secondary" href="#projects">
+          Explore Work
+        </a>
+      </div>
+    </div>
+
+    <div class="scene-wrap">
+      <div class="scene" id="scene">
+        <div class="orbit"></div>
+        <div class="orbit two"></div>
+
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+
+        <div class="monolith">
+          <div class="face"></div>
+
+          <div class="bars">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </div>
+
+        <div class="chapter">
+          <strong id="chapterName">RAW</strong>
+          <span id="chapterCount">01 / 04 — THE STORY</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="kicker">01 / Experience</div>
+        <h2>Building context<br>before solutions.</h2>
+      </div>
+
+      <p class="section-note">
+        A multidisciplinary approach shaped by data, business, design and
+        digital problem-solving.
+      </p>
+    </div>
+
+    <div class="timeline">
+      <article class="job">
+        <div class="job-year">Present</div>
+        <div>
+          <h3>Data & Digital Practice</h3>
+        </div>
+        <p>
+          Developing analytical thinking, visualization skills and digital
+          experiences with a focus on turning information into action.
+        </p>
+      </article>
+
+      <article class="job">
+        <div class="job-year">Learning</div>
+        <div>
+          <h3>Design & Development</h3>
+        </div>
+        <p>
+          Exploring responsive interfaces, creative development and systems
+          that balance aesthetics with usability.
+        </p>
+      </article>
+
+      <article class="job">
+        <div class="job-year">Foundation</div>
+        <div>
+          <h3>Business & Marketing</h3>
+        </div>
+        <p>
+          Understanding audiences, business problems and how data can support
+          stronger communication and decision-making.
+        </p>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="kicker">02 / Selected Work</div>
+        <h2>Data, but<br>make it felt.</h2>
+      </div>
+    </div>
+
+    <div class="projects">
+
+      <article class="project">
+        <div class="project-visual">
+          <div class="abstract-chart">
+            <div class="chart-line"></div>
+            <div class="chart-dot"></div>
+            <div class="chart-dot"></div>
+            <div class="chart-dot"></div>
+            <div class="chart-dot"></div>
+          </div>
+        </div>
+
+        <div class="project-content">
+          <div>
+            <div class="project-meta">Analytics / Visualization</div>
+            <h3>Signal</h3>
+            <p>
+              An analytical dashboard concept focused on making complex
+              performance patterns understandable at a glance.
+            </p>
+          </div>
+          <div class="project-meta">Python · SQL · Visualization</div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-visual">
+          <div class="abstract-chart"></div>
+        </div>
+
+        <div class="project-content">
+          <div>
+            <div class="project-meta">Marketing / Insight</div>
+            <h3>Audience Atlas</h3>
+            <p>
+              A data-led exploration of audience behavior, segmentation and
+              digital communication opportunities.
+            </p>
+          </div>
+          <div class="project-meta">Research · Analytics · Strategy</div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-visual">
+          <div class="abstract-chart"></div>
+        </div>
+
+        <div class="project-content">
+          <div>
+            <div class="project-meta">Design / Development</div>
+            <h3>Digital Form</h3>
+            <p>
+              An experimental interface exploring the space between editorial
+              design, interaction and useful digital systems.
+            </p>
+          </div>
+          <div class="project-meta">UI · Frontend · Motion</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="experiments">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="kicker">03 / Experiments</div>
+        <h2>Curiosity is<br>part of the process.</h2>
+      </div>
+    </div>
+
+    <div class="experiment-grid">
+
+      <article class="experiment">
+        <span class="experiment-number">01</span>
+        <div>
+          <strong>Generative Data</strong>
+          <p class="section-note">Visual systems generated from information.</p>
+        </div>
+      </article>
+
+      <article class="experiment">
+        <span class="experiment-number">02</span>
+        <div>
+          <strong>Interface Motion</strong>
+          <p class="section-note">Exploring movement with intention, not noise.</p>
+        </div>
+      </article>
+
+      <article class="experiment">
+        <span class="experiment-number">03</span>
+        <div>
+          <strong>Digital Objects</strong>
+          <p class="section-note">Small studies in interaction, depth and form.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="kicker">04 / FAQ</div>
+        <h2>A few useful<br>things to know.</h2>
+      </div>
+    </div>
+
+    <div class="faq">
+
+      <div class="faq-item">
+        <button>
+          What areas do you work across?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          My interests sit at the intersection of data analytics, marketing,
+          design and digital development.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button>
+          What makes your approach different?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          I approach digital work from both an analytical and creative
+          perspective—looking for insight first, then designing a clear way to
+          communicate it.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button>
+          Are you open to new opportunities?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. I am interested in opportunities where I can learn, contribute
+          and build meaningful digital work.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="kicker">05 / Contact</div>
+
+    <h2>Have a problem worth<br><i>building for?</i></h2>
+
+    <p class="hero-copy" style="margin:28px auto;">
+      Let's turn ideas, information and opportunity into something useful.
+    </p>
+
+    <div class="actions">
+      <a class="button button-primary" href="mailto:your@email.com">
+        Start a conversation ↗
+      </a>
+      <a class="button button-secondary" href="resume.pdf" download>
+        Download Resume
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 Mohammed Kaleem Uddin</span>
+    <span>Data · Design · Marketing · Development</span>
+  </div>
+</footer>
+
+<script>
+/* FAQ */
+
+document.querySelectorAll(".faq-item button").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.parentElement;
+
+    document.querySelectorAll(".faq-item").forEach(el => {
+      if (el !== item) el.classList.remove("active");
+    });
+
+    item.classList.toggle("active");
+  });
+});
+
+/* DESKTOP 3D POINTER RESPONSE */
+
+const scene = document.getElementById("scene");
+
+if (
+  window.matchMedia("(pointer: fine)").matches &&
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+) {
+  document.addEventListener("pointermove", e => {
+    const x = (e.clientX / window.innerWidth - .5) * 8;
+    const y = (e.clientY / window.innerHeight - .5) * -8;
+
+    scene.style.transform =
+      `rotateY(${x}deg) rotateX(${y}deg)`;
+  });
+}
+
+/* 4-CHAPTER SCROLL STORY */
+
+const chapters = [
+  { name: "RAW", count: "01 / 04 — THE STORY" },
+  { name: "PATTERN", count: "02 / 04 — THE STORY" },
+  { name: "INSIGHT", count: "03 / 04 — THE STORY" },
+  { name: "IMPACT", count: "04 / 04 — THE STORY" }
+];
+
+const chapterName = document.getElementById("chapterName");
+const chapterCount = document.getElementById("chapterCount");
+
+window.addEventListener("scroll", () => {
+  const progress = Math.min(
+    window.scrollY / (window.innerHeight * 2.2),
+    .999
+  );
+
+  const index = Math.floor(progress * 4);
+  const chapter = chapters[index];
+
+  chapterName.textContent = chapter.name;
+  chapterCount.textContent = chapter.count;
+
+  const monolith = document.querySelector(".monolith");
+
+  if (index === 0) {
+    monolith.style.transform =
+      "translate(-50%,-50%) rotateY(-24deg) rotateX(9deg)";
+  }
+
+  if (index === 1) {
+    monolith.style.transform =
+      "translate(-50%,-50%) rotateY(5deg) rotateX(18deg) scale(1.04)";
+  }
+
+  if (index === 2) {
+    monolith.style.transform =
+      "translate(-50%,-50%) rotateY(30deg) rotateX(-8deg) scale(1.08)";
+  }
+
+  if (index === 3) {
+    monolith.style.transform =
+      "translate(-50%,-50%) rotateY(0deg) rotateX(0deg) scale(1.12)";
+  }
+}, { passive: true });
+</script>
+
+</body>
+</html>
